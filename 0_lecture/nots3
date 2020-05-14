@@ -24,4 +24,7 @@ In LL are a type of Trees
 
             all values in the left subtree are less than the value at the given node
             all values on he right are greater than or equal to the value at the given node 
+
+DOM is a giant tree structure
                  
+                 recursion --> uses stack behind the scene. 
