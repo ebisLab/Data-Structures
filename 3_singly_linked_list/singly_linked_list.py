@@ -15,6 +15,11 @@ class Node:
         self.next_node = new_next
 
 
+# li = Node(1)
+# li.set_next(Node(2))
+# li.next_node.next_node = Node(3)
+# li.next_node.next_node.next_node = Node(4)
+
 class LinkedList:
     def __init__(self):
         # first node in the list
@@ -24,6 +29,21 @@ class LinkedList:
 
         # we dont have access to the end of the linked list
         # when we want to add to the end, we need to traverse the whole list to the end
+
+    # its easier to start from the head
+    # no traversals had to happen, we had direct access to our head and new node
+
+    # O(1)
+
+    def add_to_head(self, value):
+        new_node = Node(value)
+
+        if not self.head and not self.tail:  # if list is empty
+            self.head = new_node
+            self.tail = new_node
+        else:
+            new_node.set_next(self.head)
+            self.head = new_node
 
     def add_to_tail(self, value):
         # regardless of if the list is empy or not, we need to wrap the value in a Node
@@ -44,6 +64,15 @@ class LinkedList:
             # set self.tail to the new node (alter self tail and where it points to)
             self.tail = new_node
 
+            # what node do we want to add the new node to?
+            # The last node in the list
+            # HOW: We can get to the last node in the list by traversing it
+            # current = self.head  # name the reference (current) and update i
+            # while current.get_next() is not None:
+            #     current = current.get_next()  # keep going
+            # # we are a the end of the linked list
+            # current.set_next(new_node)
+
 # we already have access to the head of the linked list
 
     def remove_head(self):
@@ -59,6 +88,33 @@ class LinkedList:
             # update self head ---> it nees to refer the next element next in line
             self.head = self.head.get_next()
             return value
+
+    # itirate over our linked list and print each value in it i
+    def print_ll_elements(self):
+        current = self.head
+
+        while current is not None:
+            print(current.value)
+            # update reference
+            current = current.get_next()
+            # or
+            #current = current.next_node
+
+
+# ll = LinkedList()
+# ll.add_to_head(3)
+# ll.add_to_head(5)
+# ll.add_to_head(9)
+# ll.add_to_head(11)
+# ll.print_ll_elements()
+
+li = LinkedList()
+
+li.add_to_tail(1)
+li.add_to_tail(2)
+li.add_to_tail(5)
+li.add_to_tail(10)
+li.print_ll_elements()
 
 
 # li = Node(1)

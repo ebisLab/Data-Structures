@@ -30,6 +30,21 @@ class LinkedList:
         # we dont have access to the end of the linked list
         # when we want to add to the end, we need to traverse the whole list to the end
 
+    # its easier to start from the head
+    # no traversals had to happen, we had direct access to our head and new node
+
+    # O(1)
+
+    def add_to_head(self, value):
+        new_node = Node(value)
+
+        if not self.head and not self.tail:  # if list is empty
+            self.head = new_node
+            self.tail = new_node
+        else:
+            new_node.set_next(self.head)
+            self.head = new_node
+
     def add_to_end(self, value):
         # regardless of if the list is empy or not, we need to wrap the value in a Node
 
@@ -74,6 +89,24 @@ class LinkedList:
             self.head = self.head.get_next()
             return value
 
+    # itirate over our linked list and print each value in it i
+    def print_ll_elements(self):
+        current = self.head
+
+        while current is not None:
+            print(current.value)
+            # update reference
+            current = current.get_next()
+            # or
+            #current = current.next_node
+
+
+ll = LinkedList()
+ll.add_to_head(3)
+ll.add_to_head(5)
+ll.add_to_head(9)
+ll.add_to_head(11)
+ll.print_ll_elements()
 # li = Node(1)
 # li_2 = Node(2)
 # li_3 = Node(3)

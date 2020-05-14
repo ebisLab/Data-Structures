@@ -15,19 +15,35 @@ made up of nodes that are connected to another
 """
 
 
+# class Stack:
+#     def __init__(self):
+#         self.size = 0
+#         self.storage = []
+
+#     def __len__(self):
+#         return self.size
+
+#     def push(self, value):
+#         self.storage.append(value)
+#         self.size = len(self.storage)
+
+#     def pop(self):
+#         if self.size > 0:
+#             self.storage.pop()
+#             self.size = len(self.storage)
+
 class Stack:
     def __init__(self):
         self.size = 0
         self.storage = []
 
     def __len__(self):
-        return self.size
+        return len(self.storage)
 
     def push(self, value):
         self.storage.append(value)
-        self.size = len(self.storage)
 
     def pop(self):
-        if self.size > 0:
-            self.storage.pop()
-            self.size = len(self.storage)
+        if len(self.storage) == 0:
+            return None
+        return self.storage.pop()
