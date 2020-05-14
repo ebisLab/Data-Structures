@@ -85,3 +85,12 @@ It flows in one direction
   		|
   		v
 [ ①✕ -> ② -> ③-> N]
+
+
+
+**QUEUE --> ordering of line
+FIFO --> 
+Pros: Simple intuititive to use and Implementation
+They can be used to serialize data coming in from multiple sources
+
+Con: Are not general-purpose at all in and of themselves

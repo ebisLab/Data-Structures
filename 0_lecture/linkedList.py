@@ -24,6 +24,11 @@ class LinkedList:
     def __init__(self):
         # first node in the list
         self.head = None
+        # last node in the linked list
+        self.tail = None
+
+        # we dont have access to the end of the linked list
+        # when we want to add to the end, we need to traverse the whole list to the end
 
     def add_to_end(self, value):
         # regardless of if the list is empy or not, we need to wrap the value in a Node
@@ -32,34 +37,42 @@ class LinkedList:
 
         new_node = Node(value)
         # what if the list is empty?
-        if not self.head:  # this is a way to write empty arrays
+        if not self.head and not self.tail:  # this is a way to write empty arrays
+            # set both head and tail to the new node
             self.head = new_node
+            self.tail = new_node
         # what if the list isnt empty
         else:
-            # self.head.set_next(new_node)
+            # set the current tail's next to the new node
+            self.tail.set_next(new_node)
+
+            # set self.tail to the new node (alter self tail and where it points to)
+            self.tail = new_node
 
             # what node do we want to add the new node to?
             # The last node in the list
             # HOW: We can get to the last node in the list by traversing it
-            current = self.head  # name the reference (current) and update i
-            while current.get_next() is not None:
-                current = current.get_next()  # keep going
-            # we are a the end of the linked list
-            current.set_next(new_node)
+            # current = self.head  # name the reference (current) and update i
+            # while current.get_next() is not None:
+            #     current = current.get_next()  # keep going
+            # # we are a the end of the linked list
+            # current.set_next(new_node)
 
-        def remove_from_head(self):
-            # what if the list is empty?
-            if not self.head:
-                return None
+# we already have access to the head of the linked list
+
+    def remove_from_head(self):
+        # what if the list is empty?
+        if not self.head:
+            return None
             # what if it isnt empty?
-            else:
-                # we want to return the value at the current head
-                value = self.head.get_value()  # want to over write the head
+        else:
+            # we want to return the value at the current head
+            value = self.head.get_value()  # want to over write the head
 
-                # we want to remove the value at the head
-                # update self head ---> it nees to refer the next element next in line
-                self.head = self.head.get_next()
-                return value
+            # we want to remove the value at the head
+            # update self head ---> it nees to refer the next element next in line
+            self.head = self.head.get_next()
+            return value
 
 # li = Node(1)
 # li_2 = Node(2)

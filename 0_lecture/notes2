@@ -1,0 +1,87 @@
+
+    __    __               __       __
+___|________|_____________|___________|__________________________________
+|__|__|__|__|__|_⑥_|__|__|_1_|_2_|_3_|_④_|_⑦_|__|__|__|__|__|_⑤|__|__|
+   |__    __|             |__       __|
+
+arr = [1,2,3]
+
+ListLink=  ④ -> ⑤ -> ⑥-> ⑦ -> N
+
+linked list and arrays
+they use memory differently 
+
+
+
+[1,2,4,8,9,11]
+ with arrays you cant have empty spots only at the end
+ you want to maintain the order of the elements
+
+if we remove an element, you have to fill in the empty spot by moving the next elements over until 
+you get an empty element at the end.  ===> worst case run time O(n) ==> linear run time
+
+
+ H
+ |
+ |
+ v
+ ① -> ③-> ⑤ -> ⑦ -> N
+ |
+  ----->  26 <- H
+
+
+
+ ① -> ③-> ⑤ -> ⑦ -> N
+ |
+  ----->  26 <- H
+
+
+
+ ③-> ⑤ -> ⑦ -> N
+ |
+  ----->  26 <- H
+
+  If you want to remove 3
+
+   ③-> ⑤ -> ⑦ -> N
+        |
+        ----->  26 <- H
+
+
+        ⑤ -> ⑦ -> ⑧ -> ⑨ -> 10 -> N
+        |
+        ----->  26 <- H
+
+
+        If you want to remove 9
+
+        ⑤ -> ⑦ -> ⑧ -> ⑨ -> 10 -> N
+                    |
+                    ----->  26 <- H
+                                * point arrow to the node before the one you want to remove, so you can point it to the next node after it deletes
+
+with linked list there's no shifting, you dont need to shift the remaining elements around
+
+
+
+while curr.next.val!= target:
+    curr = curr.next
+    curr.next = curr.next.next
+
+
+
+    ----------NOTES AGAIN
+
+    const questionnable = {
+        something: "hi",
+        next: questionnable2
+    }
+
+    const = questionnable2= {
+       something: "hi",
+        next: null
+    }
+
+**STACK
+
+Ability o add and reove 

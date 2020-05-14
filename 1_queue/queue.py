@@ -9,20 +9,67 @@ return elements in First In First Out order.
    Make sure the Queue tests pass.
 3. What is the difference between using an array vs. a linked list when 
    implementing a Queue?
+
+   ---> They are not general purpose unlike, the others can perform multiple functions  
    
 Stretch: What if you could only use instances of your Stack class to implement the Queue?
          What would that look like? How many Stacks would you need? Try it!
 """
+# /Users/Eunice/WebDev/Lambda/CS/Week2/Data-Structures/3_singly_linked_list/singly_linked_list.py
+# from doubly_linked_list import DoublyLinkedList
+# import sys
+# sys.path.append('../4_doubly_linked_list/doubly_linked_list')
+
+
+# class Queue:
+#     def __init__(self):
+#         self.size = 0
+#         self.storage = []
+
+#     def __len__(self):
+#         return len(self.size)
+
+#     def enqueue(self, value):
+#         self.storage.append(value)
+
+#     def dequeue(self):
+#         if len(self.storage) == 0:
+#             return None
+#         return self.storage.pop(0)
+
+# class Queue:
+#     def __init__(self):
+#         self.size = 0
+#         self.storage = LinkedList()
+
+#     def __len__(self):
+#         return self.size
+
+#     def enqueue(self, value):
+#         self.size += 1
+#         self.storage.add_to_end(value)
+
+#     def dequeue(self):
+#         self.size -= 1
+#         return self.storage.remove_from_head()
+
+
+from collections import deque
+
+
 class Queue:
     def __init__(self):
         self.size = 0
-        # self.storage = ?
-    
+        self.storage = deque()
+
     def __len__(self):
-        pass
+        return len(self.storage)
 
     def enqueue(self, value):
-        pass
+        self.storage.append(value)
 
     def dequeue(self):
-        pass
+        if self.storage:
+            return self.storage.popleft()
+        else:
+            return None
