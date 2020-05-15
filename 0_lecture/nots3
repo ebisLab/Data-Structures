@@ -28,3 +28,7 @@ In LL are a type of Trees
 DOM is a giant tree structure
                  
                  recursion --> uses stack behind the scene. 
+
+Traversal --> operation in which each node of a data structure such as tree is "visited". 
+
+Depth First Traversal (DFT) and Breadth First Traversal (BFT)

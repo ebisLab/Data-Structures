@@ -1,5 +1,5 @@
 class Node:
-    def __init__(self, value=None, next_node=None):
+    def __init__(self, value=None, next_node=None):  # def -> constructors # val,n-> argument
         # val at this linked list node
 
         self.value = value
@@ -73,6 +73,26 @@ class LinkedList:
             # # we are a the end of the linked list
             # current.set_next(new_node)
 
+    def contains(self, target):
+        # When we start searching, self will be the root
+        # compare the target against self
+        #
+        # criteria for returning fals: we know we need o go in one direction
+        # but there's no children
+        if target == self.head:  # we're comparing to stop our recursion. We might find our value right off the bat
+            return True
+        if target < self.head:
+            # go left if left is a BSTnode
+            if not self.head:
+                return False
+            return self.head.contains(target)
+        else:
+            # go right
+            if not self.tail:
+                return False
+            # return self.tail.contains(target)
+
+
 # we already have access to the head of the linked list
 
     def remove_head(self):
@@ -100,6 +120,16 @@ class LinkedList:
             # or
             #current = current.next_node
 
+    # def get_max(self):
+    #     # initi a variable that will keep track of the largest element we've seen so far as we're traversing an element
+    #     current_max = self.head.value
+    #     current = self.head.next
+
+    #     while current is not None:
+    #         if current.value > current_max:
+    #             current_max = current.value
+    #         current = current.next
+    #     return current_max
 
 # ll = LinkedList()
 # ll.add_to_head(3)
@@ -107,6 +137,7 @@ class LinkedList:
 # ll.add_to_head(9)
 # ll.add_to_head(11)
 # ll.print_ll_elements()
+
 
 li = LinkedList()
 
@@ -124,3 +155,10 @@ li.print_ll_elements()
 # li.set_next(li_2)
 # li_2.set_next(li_3)
 # li_3.set_next(li_4)
+
+
+# operations
+# get_Size()
+# find(data)
+# add(data)
+# remove(data)

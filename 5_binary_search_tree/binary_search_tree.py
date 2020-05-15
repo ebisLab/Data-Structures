@@ -10,6 +10,8 @@ This part of the project comprises two days:
    on the BSTNode class.
 """
 
+from collections import deque
+
 
 class BSTNode:
     def __init__(self, value):
@@ -66,9 +68,22 @@ class BSTNode:
             return self.value
         # otherswise, keep giong righ
         return self.right.get_max()
-        return None  # why not return self.right.get_max()
+        # return None  # why not return self.right.get_max()
+
+    def iterative_get_max(self):  # shows what recursion is doing under the hood
+        current_max = self.value
+
+        current = self  # current node we're on
+        # traverse our structure
+        while current is not None:
+            if current.value > current_max:
+                current_max = current.value
+        # update our current_max variable if we see a larger value
+            current = current.right
+        return current_max
 
     # Call the function `fn` on the value of each node
+
     def for_each(self, fn):
         # call the fn on the value at this node
         fn(self.value)
@@ -79,28 +94,99 @@ class BSTNode:
         # pass this function to the right child
         if self.right:
             self.right.for_each(fn)
+            # breadth first
+    # Depth -first traversal follows LIFO orderdring of the tree elemenents
 
+    # Depth -first traversal follows LIFO orderdring of the tree elemenents
+
+    def iterative_for_each(self, fn):
+        stack = []
+        # add the root node if stack is empty
+        stack.append(self)
+        # loop so long as the stack still has elements
+        while len(stack) > 0:
+            current = stack.pop()
+            if current.right:
+                stack.append(current.right)
+            if current.left:
+                stack.append(current.left)
+
+            fn(current.value)
+
+
+# Breadth --- first in firsto out ordering
+# iteratively
+
+
+    def breadth_first_for_each(self, fn):
+        queue = deque()
+
+        # add the root node if queue is empty
+        queue.append(self)
+        # loop so long as the queue still has elements
+        while len(queue) > 0:
+            current = queue.popleft()
+            if current.right:
+                queue.append(current.right)
+            if current.left:
+                queue.append(current.left)
+
+            fn(current.value)
     # Part 2 -----------------------
 
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
     def in_order_print(self, node):
-        pass
+        # call the fn on the value at this node
+        node(self.value)
+
+        # pass this function to the left child
+        if self.left:
+            self.left.for_each(node)
+        # pass this function to the right child
+        if self.right:
+            self.right.for_each(node)
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
     def bft_print(self, node):
-        pass
+        queue = deque()
+
+        # add the root node if queue is empty
+        queue.append(self)
+
+        # loop so long as the queue still has elements
+        while len(queue) > 0:
+            current = queue.popleft()
+            if current.right:
+                queue.append(current.right)
+            if current.left:
+                queue.append(current.left)
+
+            node(current.value)
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     def dft_print(self, node):
-        pass
+
+        stack = []
+        # add the root node if stack is empty
+        stack.append(self)
+        # loop so long as the stack still has elements
+        while len(stack) > 0:
+            current = stack.pop()
+            if current.right:
+                stack.append(current.right)
+            if current.left:
+                stack.append(current.left)
+
+            node(current.value)
 
     # Stretch Goals -------------------------
     # Note: Research may be required
 
     # Print Pre-order recursive DFT
+
     def pre_order_dft(self, node):
         pass
 
