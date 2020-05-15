@@ -137,15 +137,14 @@ class BSTNode:
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
     def in_order_print(self, node):
-        # call the fn on the value at this node
-        node(self.value)
 
         # pass this function to the left child
-        if self.left:
-            self.left.for_each(node)
+        if node.left:
+            self.in_order_print(node.left)
+        print(node.value)
         # pass this function to the right child
-        if self.right:
-            self.right.for_each(node)
+        if node.right:
+            self.in_order_print(node.right)
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
@@ -153,7 +152,7 @@ class BSTNode:
         queue = deque()
 
         # add the root node if queue is empty
-        queue.append(self)
+        queue.append(node)  # replaced self with node
 
         # loop so long as the queue still has elements
         while len(queue) > 0:
@@ -163,7 +162,8 @@ class BSTNode:
             if current.left:
                 queue.append(current.left)
 
-            node(current.value)
+            # print
+            print(current.value)
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
@@ -171,7 +171,7 @@ class BSTNode:
 
         stack = []
         # add the root node if stack is empty
-        stack.append(self)
+        stack.append(node)  # self -> node
         # loop so long as the stack still has elements
         while len(stack) > 0:
             current = stack.pop()
@@ -180,7 +180,8 @@ class BSTNode:
             if current.left:
                 stack.append(current.left)
 
-            node(current.value)
+            # print
+            print(current.value)
 
     # Stretch Goals -------------------------
     # Note: Research may be required
@@ -193,3 +194,14 @@ class BSTNode:
     # Print Post-order recursive DFT
     def post_order_dft(self, node):
         pass
+
+
+# bst = BSTNode(1)
+# bst.insert(8)
+# bst.insert(5)
+# bst.insert(7)
+# bst.insert(6)
+# bst.insert(3)
+# bst.insert(4)
+# bst.insert(2)
+# bst.dft_print(bst)
