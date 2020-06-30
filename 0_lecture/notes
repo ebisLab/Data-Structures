@@ -1,0 +1,96 @@
+Linked List
+
+store a list of values
+isolated nodes  
+(arrows are references)
+
+
+First element of node is head
+last element before the N is tail
+N is none
+number between head and tail is value
+
+		in contrast with arrays
+Pros:
+	Easier to insert into and delete from the middle of a linked list compared to an array..
+(WHY)
+
+Const:
+Not cache friendly 
+
+
+Pro - keep adding list to the end of the list. (unlike arrays with static amount of allocated memory)
+
+
+
+
+
+BIG 0 IS A MEASURE
+
+Time  != Big O   <-- hardware indpendent
+  ^
+  |
+Hardware dependent
+
+
+O(c) - constant - Best case scenario - doesnt scale at the result of the input 
+
+
+SIMPLIFYING BIG 0 notation
+
+O(c + n)  => O (c̶ + n) => O(n)
+
+
+***STACKS -- Ordering properties
+Last In First Out - LIFO (stacking dishes) -  vertical line
+QUEUE - vertical line - FIFO - First in First Out
+
+Implementation
+
+List is a superset of stack
+
+
+
+***LINKED LIST
+Array and Linked List store things in order.
+Array allow you to index to fetch particular elements
+
+LL ---> no index, they are like an anchor chain
+made up of nodes that are connected to another
+It flows in one direction
+
+[ ① -> ② -> ③-> N]
+   |
+   |  split list
+   |
+	----> ④ -> N          ① set_next(④)
+
+
+  H
+  |
+  |                         
+  v
+[ ① -> ② -> ③-> N]
+
+
+  		H
+  		|
+  		|
+  		v
+[ ① -> ② -> ③-> N]
+
+
+  		H
+  		|
+  		|
+  		v
+[ ①✕ -> ② -> ③-> N]
+
+
+
+**QUEUE --> ordering of line
+FIFO --> 
+Pros: Simple intuititive to use and Implementation
+They can be used to serialize data coming in from multiple sources
+
+Con: Are not general-purpose at all in and of themselves
