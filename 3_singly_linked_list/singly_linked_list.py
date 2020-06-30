@@ -73,24 +73,15 @@ class LinkedList:
             # # we are a the end of the linked list
             # current.set_next(new_node)
 
-    def contains(self, target):
-        # When we start searching, self will be the root
-        # compare the target against self
-        #
-        # criteria for returning fals: we know we need o go in one direction
-        # but there's no children
-        if target == self.head:  # we're comparing to stop our recursion. We might find our value right off the bat
-            return True
-        if target < self.head:
-            # go left if left is a BSTnode
-            if not self.head:
-                return False
-            return self.head.contains(target)
-        else:
-            # go right
-            if not self.tail:
-                return False
-            # return self.tail.contains(target)
+    def contains(self, value):
+        current = self.head
+
+        while current != None:
+            if current.value == value:
+                print(current.value)
+            # update reference
+            current = current.get_next()
+        return False
 
 
 # we already have access to the head of the linked list
@@ -131,13 +122,6 @@ class LinkedList:
     #         current = current.next
     #     return current_max
 
-# ll = LinkedList()
-# ll.add_to_head(3)
-# ll.add_to_head(5)
-# ll.add_to_head(9)
-# ll.add_to_head(11)
-# ll.print_ll_elements()
-
 
 li = LinkedList()
 
@@ -146,19 +130,3 @@ li.add_to_tail(2)
 li.add_to_tail(5)
 li.add_to_tail(10)
 li.print_ll_elements()
-
-
-# li = Node(1)
-# li_2 = Node(2)
-# li_3 = Node(3)
-# li_4 = Node(4)
-# li.set_next(li_2)
-# li_2.set_next(li_3)
-# li_3.set_next(li_4)
-
-
-# operations
-# get_Size()
-# find(data)
-# add(data)
-# remove(data)
