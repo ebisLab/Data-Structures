@@ -1,37 +1,4 @@
 # linked list
-class Node:
-    def __init__(self, data, next=None):
-        self.data = data
-        self.next = next
-
-        # node=Node(1)
-    def get_value(self):
-        # returns the node's data
-        return self.data
-
-    def get_next(self):
-        # returns the thing pointed at by this node's 'next' reference
-        return self.next
-
-    # update new next's velue
-    def set_next(self, new_next):
-        # sets this node's 'next' reference to 'new_next'
-        self.next = new_next
-
-    '''1'''
-
-
-node = Node(1)   # 1=>N
-'''2'''
-node.set_next(Node(2))    # 1 => 2=> N
-
-# CAUTION
-'''3.1'''  # ndoe.set_next(Node(3))  #1 =>3 =>N
-
-# SOLUTION
-'''3.2'''
-node.get_next().set_next(Node(3))  # 1=>2=>3=>N
-node.get_next().get_next().set_next(Node(4))  # 1=>2=>3=>4=>N
 
 
 class LinkedList:
@@ -79,3 +46,38 @@ class LinkedList:
             # update 'self.head' to refer to the Node after the Node we just deleted
             self.head = self.head.get_next()
         return data
+
+
+class Node:
+    def __init__(self, data, next=None):
+        self.data = data
+        self.next = next
+
+        # node=Node(1)
+    def get_value(self):
+        # returns the node's data
+        return self.data
+
+    def get_next(self):
+        # returns the thing pointed at by this node's 'next' reference
+        return self.next
+
+    # update new next's velue
+    def set_next(self, new_next):
+        # sets this node's 'next' reference to 'new_next'
+        self.next = new_next
+
+    '''1'''
+
+
+node = Node(1)   # 1=>N
+'''2'''
+node.set_next(Node(2))    # 1 => 2=> N
+
+# CAUTION
+'''3.1'''  # ndoe.set_next(Node(3))  #1 =>3 =>N
+
+# SOLUTION
+'''3.2'''
+node.get_next().set_next(Node(3))  # 1=>2=>3=>N
+node.get_next().get_next().set_next(Node(4))  # 1=>2=>3=>4=>N
