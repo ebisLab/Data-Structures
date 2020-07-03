@@ -10,56 +10,55 @@ return elements in Last In First Out order.
 3. What is the difference between using an array vs. a linked list when 
    implementing a Stack?
 """
-# from linkedlist import LinkedList
+from linkedlist import LinkedList
 
-
-# class Stack:
-#     def __init__(self):
-#         self.size = 0
-#         self.storage = LinkedList()
-
-#     def __len__(self):
-#         return self.size
-
-#     def push(self, value):
-#         self.size += 1
-#         self.storage.add_to_head(value)
-
-#     def pop(self):
-#         #check if empty
-#         if self.size == 0:
-#             return None
-
-#         else:
-#             self.size -= 1
-#             return self.storage.remove_tail()
-
-#         # if self.size > 0:
-#         #     self.size -= 1
-#         #     return self.storage.remove_tail()
+# O(1) #very efficient
 
 
 class Stack:
     def __init__(self):
         self.size = 0
-        self.storage = []
+        self.storage = LinkedList()
 
     def __len__(self):
         return self.size
 
     def push(self, value):
         self.size += 1
-        self.storage.insert(0, value)
+        self.storage.add_to_head(value)
 
     def pop(self):
         # check if empty
-        if len(self.storage) == 0:
+        if self.size == 0:
             return None
 
-        # remove the first eleent in storage
-        self.size -= 1
-        node = self.storage.pop(0)
-        return node
+        else:
+            self.size -= 1
+            return self.storage.remove_head()
+
+
+# o(n)
+# class Stack:
+#     def __init__(self):
+#         self.size = 0
+#         self.storage = []
+
+#     def __len__(self):
+#         return self.size
+
+#     def push(self, value):
+#         self.size += 1
+#         self.storage.insert(0, value)
+
+#     def pop(self):
+#         # check if empty
+#         if len(self.storage) == 0:
+#             return None
+
+#         # remove the first eleent in storage
+#         self.size -= 1
+#         node = self.storage.pop(0)
+#         return node
 
 
 # new_stack = Stack()
