@@ -127,6 +127,12 @@ class DoublyLinkedList:
     the node was the head or the tail"""
 
     def delete(self, node):
+        # scenario - list is empty -> do nothing
+        # list is only one node
+        # node is the HEAD node (so make sue we handle the head poiner correctly)
+        # node is the TAIL node (mak sure tail is handled correctly)
+        # the node is just some node in the list
+
         # planning
         self.length -= 1
         # this is the only node
