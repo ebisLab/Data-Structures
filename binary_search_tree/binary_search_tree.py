@@ -19,7 +19,6 @@ class BSTNode:
 
     # Insert the given value into the tree
     def insert(self, value):
-        pass
         # * take the current value of our node (self.value)
         # * compare to the new value we want to insert
 
@@ -33,17 +32,14 @@ class BSTNode:
             else:
                 self.left.insert(value)
 
-        # *second case
         if value >= self.value:
-            pass
-            # * self.right is already taken by a node
-            # make that (right ) node call insert
-            # * set the righ child to the new node with new value
-
-            # new_node =
-            # if not value:
-            #     return
-            # if
+            # * if self.left is already taken by a node
+            # * make that (left node with the new value)
+            # * set the left to the new node with the new value
+            if self.right is None:
+                self.right = BSTNode(value)
+            else:
+                self.right.insert(value)
 
             # Return True if the tree contains the value
             # False if it does not
@@ -90,23 +86,37 @@ class BSTNode:
         # * if you can go right, call for_each on the right tree
         if self.right:
             self.right.for_each(fn)
-        pass
 
     # Part 2 -----------------------
 
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
     def in_order_print(self, node):
+        # * this is basically for each traversal default
         pass
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
     def bft_print(self, node):
+        # * create a queue for nodes
+        # * add the first node to the queue
+        # * while quueue the first node from the quueue
+        # * remove first node from the queue
+        # * print the removed node
+        # * add all children into the queueu
         pass
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     def dft_print(self, node):
+        # * create a stack for nodes
+        # * add the first node to the stack
+        # * while quueue the first node from the stack
+        # * remove first node from the stack
+        # * print the removed node
+        # * add all children into the stack
+        #! the order you add children will matter
+
         pass
 
     # Stretch Goals -------------------------
